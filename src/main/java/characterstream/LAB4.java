@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LAB3 {
+public class LAB4 {
 
     public static void main(String[] args) {
         try {
@@ -19,17 +19,16 @@ public class LAB3 {
             Logger.getLogger(LAB3.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            String s;
-            FileReader file = new FileReader("data.txt");
-            BufferedReader input = new BufferedReader(file);
-            while ((s = input.readLine()) != null) {
-                System.out.print(s);
+            Scanner input = new Scanner(new FileReader("data.txt"));
+            while (input.hasNext()) {
+                String name = input.nextLine();
+                int age = input.nextInt();
+                double weight = input.nextDouble();
+                double height = input.nextDouble();
+                System.out.println(name + " " + age + " " + weight + " " + height);
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(LAB1.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(LAB1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LAB3.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 }
